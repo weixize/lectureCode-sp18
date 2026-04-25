@@ -4,7 +4,11 @@ public class Lists1Exercises {
       * to change. */
     public static IntList incrList(IntList L, int x) {
         /* Your code here. */
-        return L;        
+        if (L == null) {
+            return null;
+        } else {
+            return new IntList(L.first + x, incrList(L.rest, x));
+        }
     }
 
     /** Returns an IntList identical to L, but with
@@ -12,6 +16,11 @@ public class Lists1Exercises {
       * the 'new' keyword. */
     public static IntList dincrList(IntList L, int x) {
         /* Your code here. */
+        IntList p = L;
+        while (p != null) {
+            p.first += x;
+            p = p.rest;
+        }
         return L;
     }
 
